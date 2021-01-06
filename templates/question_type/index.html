@@ -1,9 +1,22 @@
-<h3>Question type</h3>
+{% extends "layout.html" %}
+{% block haeder %} Welcome pages {% endblock %}
+{% block content %}
+    <h3>Question type</h3>
 
-<table><tr><td><b>Question type name</b></td><td><b>Question type desc</b></td></tr>
-{% for q_type in q_type %}
-    <tr><td>{{ q_type.q_type_name }} </td>><td> ${{ q_type.q_type_desc }} </td></tr>
-{% endfor %}
-</ul>
-</table>
-<a href="/add">Add Item</a>
+    <table class="table table-striped">
+        <tr>
+            <thead>
+            <th>Question type name</th>
+            <th>Question type desc</th>
+            </tr>
+            </thead>
+            {% for q_type in q_type %}
+                <tr>
+                    <td>{{ q_type.q_type_name }} </td>
+                    >
+                    <td> {{ q_type.q_type_desc }} </td>
+                </tr>
+            {% endfor %}
+        </ul>
+    </table>
+{% endblock %}

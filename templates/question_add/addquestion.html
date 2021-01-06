@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% block haeder %} Add question {% endblock %}
+{% block content %}
+    {% if q_type %}
+
+        <p><strong>{{ q_type.name }}</strong> New question added.</p>
+        <p><a href="/">Queue type</a></p>
+
+    {% endif %}
+
+    <form action="{{ url_for('typeadd') }}" method="POST" class="form-style-1">
+        <li>
+            <label for="name_id">Name</label>
+            <input id="name_id" name="name_field" type="text"/>
+        </li>
+        <li>
+            <label for="price_id">Queue type desc</label>
+            <input id="price_id" name="type_field" type="text" size="100"/>
+        </li>
+        <li>
+            <!-- We need a submit button to submit a form! -->
+            <input type="submit" value="Add"/>
+        </li>
+    </form>
+
+{% endblock %}
