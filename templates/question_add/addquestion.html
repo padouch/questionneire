@@ -3,19 +3,48 @@
 {% block content %}
     {% if q_type %}
 
-        <p><strong>{{ q_type.name }}</strong> New question added.</p>
-        <p><a href="/">Queue type</a></p>
+        <p><strong>New question added.</strong>></p>
+        <p><a href="/">Queue list</a></p>
 
     {% endif %}
 
-    <form action="{{ url_for('typeadd') }}" method="POST" class="form-style-1">
+    <form action="{{ url_for('questionadd') }}" method="POST" class="form-style-1">
         <li>
-            <label for="name_id">Name</label>
-            <input id="name_id" name="name_field" type="text"/>
+            <label for="q_txt_lb">Name</label>
+            <input id="q_txt_lb" name="q_txt" type="text" size="100"/>
         </li>
         <li>
-            <label for="price_id">Queue type desc</label>
-            <input id="price_id" name="type_field" type="text" size="100"/>
+            <div class="form-group">
+                <label for="q_asc_id">Aspect:</label>
+                <select class="form-control" id="q_asc_id">
+                    <option value="1">Purpose</option>
+                    <option value="2">Balance</option>
+                    <option value="3">Performance/Productivity</option>
+                    <option value="4">Empowerment/People Management</option>
+                    <option value="5">Presence</option>
+                    <option value="6">Communication</option>
+                    <option value="7">Coaching</option>
+                    <option value="8">Traits</option>
+                    <option value="9">Personal/Career</option>
+                </select>
+            </div>
+        </li>
+        <li>
+            <div class="form-group">
+                <label for="q_type_id">Question type:</label>
+                <select class="form-control" id="q_type_id">
+                    <option value="1">Purpose</option>
+                    <option value="2">Balance</option>
+                    <option value="3">Performance/Productivity</option>
+                    <option value="4">Empowerment/People Management</option>
+                    <option value="5">Presence</option>
+                    <option value="6">Communication</option>
+                    <option value="7">Coaching</option>
+                    <option value="8">Traits</option>
+                    <option value="9">Personal/Career</option>
+                </select>
+            </div>
+
         </li>
         <li>
             <!-- We need a submit button to submit a form! -->

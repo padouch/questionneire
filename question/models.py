@@ -20,3 +20,9 @@ def create_question(new_q_txt, new_q_aspect_id, new_q_type_id):
     db.session.commit()
 
     return question
+
+if __name__ == "__main__":
+    # Run this file directly to create the database tables.
+    print("Creating database tables...")
+    db.create_all()
+    print("Done!")
