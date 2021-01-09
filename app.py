@@ -2,6 +2,7 @@ import os
 from flask_sqlalchemy import SQLAlchemy
 from flask_script import Manager
 from app import create_app, db
+from werkzeug.middleware.dispatcher import DispatcherMiddleware
 
 if os.path.exists('.env'):
     print('Importing environment from .env file')
