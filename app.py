@@ -1,14 +1,26 @@
-from flask import Flask
+import os
 from flask_sqlalchemy import SQLAlchemy
+from flask_script import Manager
+from app import create_app, db
 
-app = Flask(__name__)
+if os.path.exists('.env'):
+    print('Importing environment from .env file')
+    for line in open('.env'):
+        var = line.strip().split('=')
+        if len(var) == 2:
+            os.environ[var[0]] = var[1]
 
-# Set up the SQLAlchemy Database to be a local file 'desserts.db'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///questioner.db'
-db = SQLAlchemy(app)
-extend_existing = True
+if os.environ.get('FLATCOKE') == 'production':
+    app = DispatcherMiddleware(create_app(os.environ.get("FLATCOKE")), {
+        '/api': create_app('api')
+    })
+else:
+    app = create_app(os.environ.get("FLATCOKE") or 'development')
+
+app.config['DEBUG'] = True
+questionnaire = Manager(app)
+
+
 
 if __name__ == "__main__":
-    from question_type.views import *
-
-    app.run(debug=True)
+    questionnaire.run()

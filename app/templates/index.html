@@ -1,9 +1,9 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
 {% block haeder %} Welcome pages {% endblock %}
 {% block content %}
     <h3>Question type</h3>
 
-    <table class="table table-striped">
+    <table class='table table-striped">
         <tr>
             <thead>
             <th>Question type name</th>
@@ -13,7 +13,6 @@
             {% for q_type in q_type %}
                 <tr>
                     <td>{{ q_type.q_type_name }} </td>
-                    >
                     <td> {{ q_type.q_type_desc }} </td>
                 </tr>
             {% endfor %}

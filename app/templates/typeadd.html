@@ -1,4 +1,4 @@
-{% extends "layout.html" %}
+{% extends 'layout.html' %}
 {% block haeder %} Add question type {% endblock %}
 {% block content %}
     {% if q_type %}
@@ -9,7 +9,7 @@
 
 
     <!-- The form action and method correspond to a Flask route -->
-    <form action="{{ url_for('typeadd') }}" method="POST" class="form-style-1">
+    <form action="/typeadd" method="POST" class="form-style-1">
         <li>
             <label for="name_id">Name</label>
             <input id="name_id" name="name_field" type="text"/>

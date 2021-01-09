@@ -1,19 +1,25 @@
-create table main.question_type
+create table question_type
 (
-    id          INTEGER
+    id          serial not null
         constraint question_type_pk
-            primary key autoincrement,
+            primary key,
     q_type_name text,
     q_type_desc text
 );
 
-create table main.question
+alter table question_type
+    owner to postgres;
+
+create table question
 (
-	id INTEGER
-		constraint question_pk
-			primary key autoincrement,
+    id          serial not null
+        constraint question_pk
+            primary key,
 	q_txt text,
-	q_deleted text default f,
+	q_deleted boolean default true,
 	q_aspect_id int,
 	q_type_id int
 );
+
+alter table question
+    owner to postgres;

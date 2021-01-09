@@ -11,14 +11,14 @@
 <body>
 <div class="content">
 <table><tr>
-    <td> <img src="/static/logo.png" alt="logo" width="181" height="80"></td>
+    <td> <img src="{{ url_for('static', filename='logo.png') }}" alt="logo" width="181" height="80"></td>
     <td><h1>{% block haeder %}{% endblock %}</h1></td>
 </tr></table>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
     <div class="navbar-nav">
-      <a class="nav-item nav-link" href="{{ url_for('index') }}">Home</a>
-      <a class="nav-item nav-link" href="{{ url_for('typeadd') }}">Add Question type</a>
+      <a class="nav-item nav-link" href="/">Home</a>
+      <a class="nav-item nav-link" href="/typeadd">Add Question type</a>
       <a class="nav-item nav-link" href="#">Add Question</a>
       <a class="nav-item nav-link" href="#">List users</a>
       <a class="nav-item nav-link" href="#">Logout</a>
