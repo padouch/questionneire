@@ -3,14 +3,14 @@
 {% block content %}
     <h3>Question type</h3>
 
-    <table class='table table-striped">
+    <table class='table table-striped'>
         <tr>
             <thead>
             <th>Question type name</th>
             <th>Question type desc</th>
             </tr>
             </thead>
-            {% for q_type in q_type %}
+            {% for q_type in q_types %}
                 <tr>
                     <td>{{ q_type.q_type_name }} </td>
                     <td> {{ q_type.q_type_desc }} </td>

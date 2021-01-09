@@ -9,6 +9,7 @@ Flask-Menu==0.7.0
 #itsdangerous==1.0.1
 #wsgiref==0.1.2
 
+psycopg2
 flask_script
 Flask-login
 autoenv

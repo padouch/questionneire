@@ -7,8 +7,8 @@ app = Blueprint('question_type', __name__, url_prefix='/')
 @app.route('/')
 @app.route('/qtypelist')
 def index():
-    q_type = Question_type.query.all()
-    return render_template('index.html', q_type=q_type)
+    q_types = Question_type.query.all()
+    return render_template('index.html', q_types=q_types)
 
 
 @app.route('/typeadd', methods=['GET', 'POST'])
