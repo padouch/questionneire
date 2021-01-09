@@ -1,5 +1,4 @@
 import os
-from flask_sqlalchemy import SQLAlchemy
 from flask_script import Manager
 from app import create_app, db
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
@@ -20,8 +19,6 @@ else:
 
 app.config['DEBUG'] = True
 questionnaire = Manager(app)
-
-
 
 if __name__ == "__main__":
     questionnaire.run()
