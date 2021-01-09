@@ -1,6 +1,8 @@
 import os
 from flask_sqlalchemy import SQLAlchemy
 from flask_script import Manager
+from werkzeug.middleware.dispatcher import DispatcherMiddleware
+
 from app import create_app, db
 
 if os.path.exists('.env'):

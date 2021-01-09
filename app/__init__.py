@@ -14,9 +14,15 @@ def create_app(config_name):
     app = Flask(__name__)
     db.init_app(app)
     app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://postgres:cokolisehodi@localhost/postgres"
+    app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///:memory:"
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 
     from app.question_type.views import app as q_type_module
 
     app.register_blueprint(q_type_module)
+
+    with app.app_context():
+        db.create_all()
+
     return app
