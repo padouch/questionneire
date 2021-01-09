@@ -16,10 +16,11 @@ def index():
 @app.route('/typeadd', methods=['GET', 'POST'])
 def typeadd():
     if request.method == 'GET':
-        return render_template('typeadd.html')
+        q_types = Question_type.query.all()
+        return render_template('typeadd.html', q_types=q_types)
 
     q_type_name = request.form.get('name_field')
     q_type_desc = request.form.get('type_field')
 
-    q_type = create_question_type(q_type_name, q_type_desc)
-    return render_template('typeadd.html', q_type=q_type)
+    q_types = create_question_type(q_type_name, q_type_desc)
+    return render_template('typeadd.html', q_types=q_types)

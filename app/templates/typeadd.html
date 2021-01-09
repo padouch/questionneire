@@ -11,7 +11,7 @@
     <!-- The form action and method correspond to a Flask route -->
     <form action="/typeadd" method="POST" class="form-style-1">
         <li>
-            <label for="name_id">Name</label>
+            <label for="name_id">Queue type</label>
             <input id="name_id" name="name_field" type="text"/>
         </li>
         <li>
@@ -23,5 +23,21 @@
             <input type="submit" value="Add"/>
         </li>
     </form>
+
+    <table class='table table-striped'>
+        <tr>
+            <thead>
+            <th>Question type </th>
+            <th>Question type desc</th>
+            </tr>
+            </thead>
+            {% for q_types in q_types %}
+                <tr>
+                    <td>{{ q_types.q_type_name }} </td>
+                    <td> {{ q_types.q_type_desc }} </td>
+                </tr>
+            {% endfor %}
+        </ul>
+    </table>
 
 {% endblock %}
