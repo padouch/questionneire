@@ -6,7 +6,7 @@ logging.basicConfig()
 logging.getLogger('sqlalchemy').setLevel(logging.DEBUG)
 
 
-class Question_type(db.Model):
+class QuestionType(db.Model):
     __tablename__ = 'question_type'
     id = db.Column(db.Integer, primary_key=True)
     q_type_name = db.Column(db.String(100))
@@ -18,7 +18,7 @@ class Question_type(db.Model):
 
 
 def create_question_type(new_q_type, new_q_type_desc):
-    question_type = Question_type(new_q_type, new_q_type_desc)
+    question_type = QuestionType(new_q_type, new_q_type_desc)
     db.session.add(question_type, new_q_type_desc)
     db.session.commit()
 

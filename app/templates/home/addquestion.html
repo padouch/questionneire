@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block haeder %} Add question {% endblock %}
+{% block content %}
+    {% if q_type %}
+
+        <p><strong>New question added.</strong>></p>
+        <p><a href="/">Queue list</a></p>
+
+    {% endif %}
+
+    <form action=/home method="POST" class="form-style-1">
+        <li>
+            <label for="q_txt_lb">Qusetion</label>
+            <input id="q_txt_lb" name="q_txt" type="text" size="100"/>
+        </li>
+        <li>
+            <div class="form-group">
+                <label for="q_asc_id">Aspect:</label>
+                <select name="q_asc_id" class="form-control" id="q_asc_id">
+                    {% for q_aspect in q_aspect %}
+                        <option value="{{ q_aspect.id }}">{{ q_aspect.q_aspect }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </li>
+        <li>
+            <div class="form-group">
+                <label for="q_type_id">Question type:</label>
+                <select name="q_type_id" class="form-control" id="q_type_id">
+                    {% for q_types in q_types %}
+                        <option value="{{ q_types.id }}">{{ q_types.q_type_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+
+        </li>
+        <li>
+            <!-- We need a submit button to submit a form! -->
+            <input type="submit" value="Add"/>
+        </li>
+    </form>
+    <table class='table table-striped'>
+        <tr>
+            <thead>
+            <th>Question</th>
+            <th>Question type</th>
+            <th>Aspect</th>
+            <th>Deleted</th>
+            </tr>
+            </thead>
+            {% for qr_list in qr_list %}
+                <tr>
+                    <td> {{ qr_list.q_txt }} </td>
+                    <td> {{ qr_list.q_type }} </td>
+                    <td> {{ qr_list.q_aspect }} </td>
+                    <td> {{ qr_list.q_deleted }} </td>
+                </tr>
+            {% endfor %}
+        </ul>
+    </table>
+{% endblock %}

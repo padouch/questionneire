@@ -20,8 +20,11 @@ def create_app(config_name):
     from app.question_add.views import mod as q_add_v
     from app.question_type.views import mod as q_type_v
     from app.question_aspect.views import mod as q_aspect_v
+    from app.home.views import mod as q_home_v
+
     app.register_blueprint(q_add_v)
     app.register_blueprint(q_type_v)
     app.register_blueprint(q_aspect_v)
+    app.register_blueprint(q_home_v)
 
     return app

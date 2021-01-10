@@ -11,7 +11,7 @@ print('view q_add')
 def questionadd():
     if request.method == 'GET':
         q_questions = Question.query.all()
-        q_types = Question_type.query.all()
+        q_types = QuestionType.query.all()
         q_aspect = QuestionAspect.query.all()
         return render_template('question_add/addquestion.html', q_questions=q_questions, q_types=q_types,
                                q_aspect=q_aspect)
@@ -23,7 +23,7 @@ def questionadd():
     q_cr_question = create_question(q_txt, q_asc_id, q_type_id)
 
     q_questions = Question.query.all()
-    q_types = Question_type.query.all()
+    q_types = QuestionType.query.all()
     q_aspect = QuestionAspect.query.all()
     return render_template('question_add/addquestion.html', q_questions=q_questions, q_types=q_types,
                            q_aspect=q_aspect)
