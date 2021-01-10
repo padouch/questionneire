@@ -8,40 +8,28 @@
 
     {% endif %}
 
-    <form action="{{ url_for('questionadd') }}" method="POST" class="form-style-1">
+    <form action=/questionadd method="POST" class="form-style-1">
         <li>
-            <label for="q_txt_lb">Name</label>
+            <label for="q_txt_lb">Qusetion</label>
             <input id="q_txt_lb" name="q_txt" type="text" size="100"/>
         </li>
         <li>
             <div class="form-group">
                 <label for="q_asc_id">Aspect:</label>
-                <select class="form-control" id="q_asc_id">
-                    <option value="1">Purpose</option>
-                    <option value="2">Balance</option>
-                    <option value="3">Performance/Productivity</option>
-                    <option value="4">Empowerment/People Management</option>
-                    <option value="5">Presence</option>
-                    <option value="6">Communication</option>
-                    <option value="7">Coaching</option>
-                    <option value="8">Traits</option>
-                    <option value="9">Personal/Career</option>
+                <select name="q_asc_id" class="form-control" id="q_asc_id">
+                    {% for q_aspect in q_aspect %}
+                        <option value="{{ q_aspect.id }}">{{ q_aspect.q_aspect }}</option>
+                    {% endfor %}
                 </select>
             </div>
         </li>
         <li>
             <div class="form-group">
                 <label for="q_type_id">Question type:</label>
-                <select class="form-control" id="q_type_id">
-                    <option value="1">Purpose</option>
-                    <option value="2">Balance</option>
-                    <option value="3">Performance/Productivity</option>
-                    <option value="4">Empowerment/People Management</option>
-                    <option value="5">Presence</option>
-                    <option value="6">Communication</option>
-                    <option value="7">Coaching</option>
-                    <option value="8">Traits</option>
-                    <option value="9">Personal/Career</option>
+                <select name="q_type_id" class="form-control" id="q_type_id">
+                    {% for q_types in q_types %}
+                        <option value="{{ q_types.id }}">{{ q_types.q_type_name }}</option>
+                    {% endfor %}
                 </select>
             </div>
 
@@ -51,5 +39,23 @@
             <input type="submit" value="Add"/>
         </li>
     </form>
-
+    <table class='table table-striped'>
+        <tr>
+            <thead>
+            <th>Question</th>
+            <th>Question type</th>
+            <th>Aspect</th>
+            <th>Deleted</th>
+            </tr>
+            </thead>
+            {% for q_questions in q_questions %}
+                <tr>
+                    <td> {{ q_questions.q_txt }} </td>
+                    <td> {{ q_questions.q_type_id }} </td>
+                    <td> {{ q_questions.q_aspect_id }} </td>
+                    <td> {{ q_questions.q_deleted }} </td>
+                </tr>
+            {% endfor %}
+        </ul>
+    </table>
 {% endblock %}

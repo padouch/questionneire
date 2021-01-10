@@ -1,0 +1,37 @@
+{% extends 'layout.html' %}
+{% block haeder %} Add question type {% endblock %}
+{% block content %}
+    {% if q_type %}
+
+        <p><strong>{{ q_aspect.q_aspect_name }}</strong> successfully created! Add another below.</p>
+
+    {% endif %}
+
+
+    <!-- The form action and method correspond to a Flask route -->
+    <form action="/qaspectadd" method="POST" class="form-style-1">
+        <li>
+            <label for="aspect_id">Question aspect</label>
+            <input id="aspect_id" name="q_aspect_name" type="text"/>
+        </li>
+        <li>
+            <!-- We need a submit button to submit a form! -->
+            <input type="submit" value="Add"/>
+        </li>
+    </form>
+
+    <table class='table table-striped'>
+        <tr>
+            <thead>
+            <th>Question aspect </th>
+            </tr>
+            </thead>
+            {% for q_aspect in q_aspect %}
+                <tr>
+                    <td>{{ q_aspect.q_aspect }} </td>
+                </tr>
+            {% endfor %}
+        </ul>
+    </table>
+
+{% endblock %}

@@ -21,4 +21,5 @@ def typeadd():
     q_type_desc = request.form.get('type_field')
 
     q_types = create_question_type(q_type_name, q_type_desc)
+    q_types = Question_type.query.all()
     return render_template('question_type/typeadd.html', q_types=q_types)

@@ -23,3 +23,13 @@ create table question
 
 alter table question
     owner to postgres;
+
+create table question_aspect
+(
+	id serial
+		constraint question_aspect_pk
+			primary key,
+	q_aspect text not null
+);
+alter table question_aspect
+    owner to postgres;
