@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+{% block haeder %} answer question {% endblock %}
+{% block content %}
+
+    <form action="/answer" method="POST" class="form-style-1">
+        <input type="radio" name="answer" value="1"> Yes<br>
+        <input type="radio" name="answer" value="0"> No <br>
+        <input type="submit" value="Add"/>
+    </form>
+{% endblock %}

@@ -10,7 +10,7 @@ def typeadd():
         q_aspect = QuestionAspect.query.all()
         return render_template('question_aspect/question_aspect.html', q_aspect=q_aspect)
 
-    q_aspect_name = request.form.get('q_aspect_field')
+    q_aspect_name = request.form.get('q_aspect_name')
     q_aspect = create_question_aspect(q_aspect_name)
     q_aspect = QuestionAspect.query.all()
     return render_template('question_aspect/question_aspect.html', q_aspect=q_aspect)

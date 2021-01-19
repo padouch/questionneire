@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+{% block haeder %} answer question {% endblock %}
+{% block content %}
+
+    <form action="/answer_multiple" method="POST" class="form-style-1">
+        Choose languages you know:
+        <br>
+        <input type="checkbox"
+               name="A"
+               value="yes">{{ q_aswer.first }}
+        <br>
+        <input type="checkbox"
+               name="B"
+               value="yes">{{ q_aswer.second }}
+        <br>
+        <input type="checkbox"
+               name="C"
+               value="yes">{{ q_aswer.third }}
+        <br>
+        <input type="checkbox"
+               name="D"
+               value="yes">{{ q_aswer.four }}
+        <br>
+        <input type="Submit">
+    </form>
+{% endblock %}

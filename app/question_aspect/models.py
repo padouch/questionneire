@@ -17,7 +17,7 @@ class QuestionAspect(db.Model):
 
 def create_question_aspect(new_q_aspect):
     question_aspect = QuestionAspect(new_q_aspect)
-    db.session.add(new_q_aspect)
+    db.session.add(question_aspect)
     db.session.commit()
 
     return question_aspect

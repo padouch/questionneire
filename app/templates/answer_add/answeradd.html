@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% block haeder %} Add answer {% endblock %}
+{% block content %}
+
+    <!-- The form action and method correspond to a Flask route -->
+    <form action="/answeradd" method="POST" class="form-style-1">
+        <li>
+            {% for que in que %}
+                <label for="a_txt"> {{ que.q_txt }}</label><br>
+            {% endfor %}
+            <label for="a_txt">Answer add</label>
+            <input id="answer_txt" name="a_txt" type="text"/>
+        </li>
+        <li>
+            <!-- We need a submit button to submit a form! -->
+            <input type="hidden" id="q_id" name="q_id" value="{{ quest_id }}">
+            <input type="submit" value="Add"/>
+        </li>
+    </form>
+
+    <table class='table table-striped'>
+        <tr>
+            <thead>
+            <th>Answer</th>
+            </tr>
+            </thead>
+            {% for answers in answers %}
+                <tr>
+                    <td>{{ answers.a_txt }} </td>
+                </tr>
+            {% endfor %}
+        </ul>
+    </table>
+
+{% endblock %}

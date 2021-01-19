@@ -10,7 +10,7 @@ print('view q_add')
 @mod.route('/home', methods=['GET', 'POST'])
 def home():
     if request.method == 'GET':
-        qr = db.engine.execute("select qu.q_txt as q_txt, qu.q_deleted as q_deleted, qa.q_aspect as q_aspect, qt.q_type_name as q_type from question_lab qu inner join question_type qt on qu.q_type_id = qt.id inner join question_aspect qa on qu.q_aspect_id = qa.id")
+        qr = db.engine.execute("select qu.q_txt as q_txt, qu.q_deleted as q_deleted, qa.q_aspect as q_aspect, qt.q_type_name as q_type from question qu inner join question_type qt on qu.q_type_id = qt.id inner join question_aspect qa on qu.q_aspect_id = qa.id")
 #        qr = QuestionAll.query.join(QuestionType, QuestionAll.q_type_id == QuestionType.id)
         q_questions = QuestionAll.query.all()
         q_types = QuestionType.query.all()
@@ -23,7 +23,7 @@ def home():
     q_type_id = request.form.get('q_type_id')
 
     q_cr_question = create_question(q_txt, q_asc_id, q_type_id)
-    qr = db.engine.execute("select qu.q_txt as q_txt, qu.q_deleted as q_deleted, qa.q_aspect as q_aspect, qt.q_type_name as q_type from question_lab qu inner join question_type qt on qu.q_type_id = qt.id inner join question_aspect qa on qu.q_aspect_id = qa.id")
+    qr = db.engine.execute("select qu.q_txt as q_txt, qu.q_deleted as q_deleted, qa.q_aspect as q_aspect, qt.q_type_name as q_type from question qu inner join question_type qt on qu.q_type_id = qt.id inner join question_aspect qa on qu.q_aspect_id = qa.id")
 
     q_questions = QuestionAll.query.all()
     q_types = QuestionType.query.all()

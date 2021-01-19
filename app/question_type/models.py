@@ -19,7 +19,7 @@ class QuestionType(db.Model):
 
 def create_question_type(new_q_type, new_q_type_desc):
     question_type = QuestionType(new_q_type, new_q_type_desc)
-    db.session.add(question_type, new_q_type_desc)
+    db.session.add(question_type)
     db.session.commit()
 
     return question_type

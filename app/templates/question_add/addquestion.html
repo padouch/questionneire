@@ -46,14 +46,16 @@
             <th>Question type</th>
             <th>Aspect</th>
             <th>Deleted</th>
+            <th>Answers</th>
             </tr>
             </thead>
-            {% for q_questions in q_questions %}
+            {% for qrList in qrList %}
                 <tr>
-                    <td> {{ q_questions.q_txt }} </td>
-                    <td> {{ q_questions.q_type_id }} </td>
-                    <td> {{ q_questions.q_aspect_id }} </td>
-                    <td> {{ q_questions.q_deleted }} </td>
+                    <td> {{ qrList.q_txt }} </td>
+                    <td> {{ qrList.q_type }} </td>
+                    <td> {{ qrList.q_aspect }} </td>
+                    <td> {{ qrList.q_deleted }} </td>
+                <td><a href="/answeradd?question_id={{ qrList.q_id }}">Add Answers</a></td>
                 </tr>
             {% endfor %}
         </ul>

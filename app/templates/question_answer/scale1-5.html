@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+{% block haeder %} answer question {% endblock %}
+{% block content %}
+
+    <form action="/answer" method="POST" class="form-style-1">
+        <input type="radio" name="answer" value="0"> Strongly disagree<br>
+        <input type="radio" name="answer" value="25"> Disagree <br>
+        <input type="radio" name="answer" value="50"> Neither agree not disagree<br>
+        <input type="radio" name="answer" value="75"> Agree<br>
+        <input type="radio" name="answer" value="100"> Strongly agree<br>
+        <input type="submit" value="Add"/>
+    </form>
+{% endblock %}
