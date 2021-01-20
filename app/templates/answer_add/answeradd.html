@@ -2,6 +2,22 @@
 {% block haeder %} Add answer {% endblock %}
 {% block content %}
 
+
+    <form action="/answertmpl" method="POST" class="form-style-1">
+        <li>
+            <input type="hidden" id="q_id" name="q_id" value="{{ quest_id }}">
+            <label for="tmp_txt"> Use template </label>
+            <select name="tmp_txt" id="a_tmpl">
+                <option value="scale1-5-aggree">Scale 1-5 Agreement</option>
+                <option value="scale1-5-improve">Scale 1-5 improvement</option>
+                <option value="boolean-tmpl">Yes/No</option>
+            </select>
+        <li>
+            <input type="submit" value="Use template"/>
+        </li>
+        </li>
+    </form>
+
     <!-- The form action and method correspond to a Flask route -->
     <form action="/answeradd" method="POST" class="form-style-1">
         <li>
@@ -17,7 +33,6 @@
             <input type="submit" value="Add"/>
         </li>
     </form>
-
     <table class='table table-striped'>
         <tr>
             <thead>
